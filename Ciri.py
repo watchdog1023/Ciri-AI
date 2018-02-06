@@ -18,7 +18,7 @@ from pygame import mixer
 #Voice Recg
 import speech_recognition as sr 
 #For Threading
-from threading import Thread
+#from threading import Thread
 from time import sleep
 
 def STT():
@@ -43,59 +43,41 @@ def die():
 
 def playMP3(mp3):
     mixer.init()
-    mixer.music.load(mp3)
+    mixer.music.load("voice/" + mp3 + ".mp3")
     mixer.music.play()
 
 def learn():
     print('Learn')
         
-def greetings(argv):
-    try:
-        opts, args = getopt.getopt(argv,"hi:o:",["ifile=","ofile="])
-    except getopt.GetoptError:
-        print('Ciri.py [options]')
-        sys.exit(2)
-    for opt, arg in opts:
-        if opt == '-h':
-            print('Ciri.py [options]')
-            print('Options:')
-            print('-h                   Help')
-            print('-die, --dead         AI Die Function')
-            print('-learn, --learn      AI Deep learn Function')
-            sys.exit()
-        elif opt in ("-die", "--dead"):
-            die()
-        elif opt in ("-learn", "--learn"):
-            ltsm()
-        else:
-            print("HI".lower())
-            print("My Name is Ciri")
-            name = input("What is your Name?\n")
-            print("Your name is " + name)
-            if name == "bob":
-                print("You are not welcome here")
-            else:
-                print("Nice to meet you " + name)
-            do = input("What do you want me to do?")
-            if do == "learn":
-                ltsm()
-            elif do == "learn".upper():
-                ltsm()
-            elif do == "learn".lower():
-                ltsm()
-            elif do == "Learn":
-                ltsm()
-            elif do == "add memo":
-                memo()
-            elif do == "die":
-                die()
-            elif do == "die".lower():
-                die()
-            elif do == "Die":
-                die()
-            elif do == "die".upper():
-                die()
-            else:
-                print("OK")
-                
-greetings(sys.argv[1:])
+def greetings():
+    playMP3("greetings")
+    print("HI,My Name is Ciri")
+    name = input("What is your Name?\n")
+    print("Your name is " + name)
+    if name == "bob":
+        print("You are not welcome here")
+    else:
+        print("Nice to meet you " + name)
+    do = input("What do you want me to do?")
+    if do == "learn":
+        ltsm()
+    elif do == "learn".upper():
+        ltsm()
+    elif do == "learn".lower():
+        ltsm()
+    elif do == "Learn":
+        ltsm()
+    elif do == "add memo":
+        memo()
+    elif do == "die":
+        die()
+    elif do == "die".lower():
+        die()
+    elif do == "Die":
+        die()
+    elif do == "die".upper():
+        die()
+    else:
+        print("OK")
+  
+greetings()
