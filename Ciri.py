@@ -41,6 +41,12 @@ def die():
     if why == "":
         print("it")
 
+def memo_check():
+    pass
+
+def memo():
+    pass
+
 def playMP3(mp3):
     mixer.init()
     mixer.music.load("voice/" + mp3 + ".mp3")
@@ -48,14 +54,20 @@ def playMP3(mp3):
 
 def learn():
     print('Learn')
+    exit()
         
 def greetings():
     playMP3("greetings")
-    print("HI,My Name is Ciri")
+    sleep(2)
+    print("Hi,I'm Ciri")
+    localtime = time.asctime(time.localtime(time.time()))
+    print("Current Local Time:" + localtime)
+    playMP3("name")
     name = input("What is your Name?\n")
     print("Your name is " + name)
     if name == "bob":
         print("You are not welcome here")
+        exit()
     else:
         print("Nice to meet you " + name)
     do = input("What do you want me to do?")
@@ -77,6 +89,12 @@ def greetings():
         die()
     elif do == "die".upper():
         die()
+    elif do == "help":
+        print("Here is a list of commands I recgoize");
+        print("Die\n")
+        print("Learn\n")
+        print("Add memo\n")
+        print("Help\n")
     else:
         print("OK")
   
