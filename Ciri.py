@@ -12,9 +12,9 @@ import time
 import pyttsx3
 #For Deep Learning
 import numpy as np
-'''import tflearn
-from tflearn.data_utils import *
-import tensorflow as tf'''
+#import tflearn
+#from tflearn.data_utils import *
+#import tensorflow as tf
 #For MP3 Playback
 from pygame import mixer
 #Voice Recg
@@ -32,14 +32,15 @@ def STT():
         playMP3("talk")
         audio = r.listen(source)
     output = r.recognize_sphinx(audio)
-    '''if output == "":
+    #if output == "":
+    #    
+    #elif output == "":
+    #    elif output == "":
+    #    
+    #else:
+    #    playMP3("understand")
+    #    print("I can not understand you")
         
-    elif output == "":
-        elif output == "":
-        
-    else:
-        playMP3("understand")
-        print("I can not understand you")'''
 
 def TTS(phase):
     engine = pyttsx3.init()
