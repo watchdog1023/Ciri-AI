@@ -90,7 +90,7 @@ def greetings():
     elif do == "die".upper():
         die()
     elif do == "help":
-        print("Here is a list of commands I recgoize");
+        print("Here is a list of commands I recgoize")
         print("Die\n")
         print("Learn\n")
         print("Add memo\n")
