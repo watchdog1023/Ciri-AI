@@ -12,9 +12,9 @@ import time
 import pyttsx3
 #For Deep Learning
 import numpy as np
-#import tflearn
-#from tflearn.data_utils import *
-#import tensorflow as tf
+import tflearn
+from tflearn.data_utils import *
+import tensorflow as tf
 #Voice Recg
 import speech_recognition as sr 
 #For Threading
