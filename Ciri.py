@@ -18,7 +18,7 @@ import tensorflow as tf
 #Voice Recg
 import speech_recognition as sr 
 #For Threading
-#from threading import Thread
+from threading import Thread
 from time import sleep
 
 state = None
