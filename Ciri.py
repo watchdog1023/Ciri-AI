@@ -15,13 +15,13 @@ import numpy as np
 #import tflearn
 #from tflearn.data_utils import *
 #import tensorflow as tf
-#For MP3 Playback
-from pygame import mixer
 #Voice Recg
 import speech_recognition as sr 
 #For Threading
 #from threading import Thread
 from time import sleep
+
+state = None
 
 def STT():
     r = sr.Recognizer()
@@ -60,6 +60,8 @@ def memo():
     pass
 
 def playMP3(mp3):
+    #For MP3 Playback
+    from pygame import mixer
     mixer.init()
     mixer.music.load("voice/" + mp3 + ".mp3")
     mixer.music.play()
@@ -69,20 +71,30 @@ def learn():
     exit()
         
 def greetings():
+    global state
+    global name
     TTS("Hi,I'm Ciri")
     print("Hi,I'm Ciri")
     localtime = time.asctime(time.localtime(time.time()))
     print("Current Local Time:" + localtime)
     TTS("current local time is " + localtime)
-    TTS("What is your Name?")
-    name = input("What is your Name?\n")
-    print("Your name is " + name)
+    if state is True:
+        TTS("What is your Name?")
+        names = input("What is your Name?\n")
+        name = names
+    
+    if state is False:
+        print("Welcome Back " + name)
+        TTS("Welcome Back " + name)
+ 
     if name == "bob":
         print("You are not welcome here")
         exit()
     else:
-        print("Nice to meet you " + name)
-        TTS("nice to meet you " + name)
+        if state is True:
+            print("Nice to meet you " + name)
+            TTS("nice to meet you " + name)
+
     TTS("what do you want me to do?")
     do = input("What do you want me to do?")
     if do == "learn":
@@ -104,12 +116,18 @@ def greetings():
     elif do == "die".upper():
         die()
     elif do == "help":
-        print("Here is a list of commands I recgoize")
-        print("Die\n")
-        print("Learn\n")
-        print("Add memo\n")
-        print("Help\n")
+        TTS("Here is a list of commands I recognise")
+        print("Here is a list of commands I recognise")
+        print("Die")
+        print("Learn")
+        print("Add memo")
+        print("Help")
+        sleep(5)
+        state = False
+        greetings()
     else:
         print("OK")
-  
-greetings()
+
+if __name__ == '__main__':  
+    state = True
+    greetings()
