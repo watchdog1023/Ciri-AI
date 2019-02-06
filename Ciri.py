@@ -40,7 +40,6 @@ def STT():
     #else:
     #    playMP3("understand")
     #    print("I can not understand you")
-        
 
 def TTS(phase):
     engine = pyttsx3.init()
@@ -86,7 +85,7 @@ def greetings():
     if state is False:
         print("Welcome Back " + name)
         TTS("Welcome Back " + name)
- 
+
     if name == "bob":
         print("You are not welcome here")
         exit()
