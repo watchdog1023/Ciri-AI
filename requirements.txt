@@ -1,2 +1,4 @@
-windows-curses
+pyttsx3
+speechrecognition 
+numpy 
 tensorflow
