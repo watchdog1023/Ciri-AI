@@ -12,13 +12,13 @@ import time
 import pyttsx3
 #For Deep Learning
 import numpy as np
-import tflearn
-from tflearn.data_utils import *
-import tensorflow as tf
+#import tflearn
+#from tflearn.data_utils import *
+#import tensorflow as tf
 #Voice Recg
 import speech_recognition as sr 
 #For Threading
-from threading import Thread
+#from threading import Thread
 from time import sleep
 
 state = None
@@ -72,16 +72,29 @@ def learn():
 def greetings():
     global state
     global name
-    TTS("Hi,I'm Ciri")
-    print("Hi,I'm Ciri")
+    if os.path.exists("name.txt") is True:
+        fi = open("name.txt","r+")
+        contents = fi.read()
+        state = False
+        name = contents
+    else:
+        file1 = open("name.txt","w+")
+        file1.close()
+        fi = open("name.txt","r+")
+    if state is True:
+        TTS("Hi,I am Cirilla,but you can call me ciri")
+        print("Hi,I'm Ciri")
     localtime = time.asctime(time.localtime(time.time()))
     print("Current Local Time:" + localtime)
-    TTS("current local time is " + localtime)
+    if state is True:
+        TTS("current local time is " + localtime)
     if state is True:
         TTS("What is your Name?")
         names = input("What is your Name?\n")
         name = names
-    
+        fi.write(name)
+        fi.close()
+        
     if state is False:
         print("Welcome Back " + name)
         TTS("Welcome Back " + name)
@@ -95,25 +108,36 @@ def greetings():
             TTS("nice to meet you " + name)
 
     TTS("what do you want me to do?")
-    do = input("What do you want me to do?")
+    do = input("What do you want me to do?\n")
     if do == "learn":
         ltsm()
+        state = False
     elif do == "learn".upper():
         ltsm()
+        state = False
     elif do == "learn".lower():
         ltsm()
+        state = False
     elif do == "Learn":
         ltsm()
+        state = False
     elif do == "add memo":
         memo()
+        state = False
     elif do == "die":
         die()
+        state = False
     elif do == "die".lower():
         die()
+        state = False
     elif do == "Die":
         die()
+        state = False
     elif do == "die".upper():
         die()
+        state = False
+    elif do == "quit":
+        return 0
     elif do == "help":
         TTS("Here is a list of commands I recognise")
         print("Here is a list of commands I recognise")
