@@ -3,4 +3,4 @@ cache: pip
 
 script:
   - pip install --upgrade setuptools 
-  - pytest
+  - pytest Ciri.py
