@@ -1,3 +1,4 @@
+setuptools
 pyttsx3
 speechrecognition 
 numpy 
