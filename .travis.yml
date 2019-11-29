@@ -2,4 +2,5 @@ language: python
 cache: pip
 
 script:
+  - pip install --upgrade setuptools 
   - pytest
