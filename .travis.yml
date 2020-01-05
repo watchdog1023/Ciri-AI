@@ -3,5 +3,5 @@ cache: pip
 
 script:
   - pip3 install --upgrade setuptools pylint
-  - pylint Ciri.py &>2 test.txt
+  - pylint Ciri.py 2> test.txt
   - cat test.txt
