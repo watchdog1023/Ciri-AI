@@ -109,19 +109,7 @@ def greetings():
 
     TTS("what do you want me to do?")
     do = input("What do you want me to do?\n")
-    if do == "learn":
-        ltsm()
-        state = False
-    elif do == "learn".upper():
-        ltsm()
-        state = False
-    elif do == "learn".lower():
-        ltsm()
-        state = False
-    elif do == "Learn":
-        ltsm()
-        state = False
-    elif do == "add memo":
+    if do == "add memo":
         memo()
         state = False
     elif do == "die":
