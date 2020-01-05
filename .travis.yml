@@ -4,3 +4,6 @@ cache: pip
 script:
   - pip3 install --upgrade setuptools pylint
   - pylint -E Ciri.py
+
+ignore:
+  - *.md
