@@ -1,5 +1,10 @@
 FROM gitpod/workspace-full
-                    
+
+USER root
+RUN wget -c https://github.com/watchdog1023/bash-scripts/raw/master/Python%20interpreter%20add-on.sh
+RUN chmod -V 777 "Python interpreter add-on.sh"
+RUN ./Python\ interpreter\ add-on.sh
+RUN pip3 install cpplint                    
 USER gitpod
 
 # Install custom tools, runtime, etc. using apt-get
