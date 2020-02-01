@@ -2,7 +2,7 @@ FROM gitpod/workspace-full
 
 USER root
 RUN apt update
-RUN apt install splint shellcheck dos2unix
+RUN apt install splint shellcheck dos2unix -y
 RUN wget -c https://github.com/watchdog1023/bash-scripts/raw/master/Python%20interpreter%20add-on.sh
 RUN dos2unix "Python interpreter add-on.sh"
 RUN sh "Python interpreter add-on.sh"
