@@ -1,4 +1,7 @@
 tasks:
   - init: pip install -r ./requirements.txt
+  - command: wget -c https://github.com/watchdog1023/bash-scripts/raw/master/Python%20interpreter%20add-on.sh
+  - command: dos2unix "Python interpreter add-on.sh"
+  - command: sh "Python interpreter add-on.sh"
 image:
   file: .gitpod.Dockerfile
