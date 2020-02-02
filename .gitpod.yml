@@ -1,4 +1,4 @@
 tasks:
-  - init: pip install -r ./requirements.txt && pip3 install --upgrade pip && wget -c https://github.com/watchdog1023/bash-scripts/raw/master/Python%20interpreter%20add-on.sh && dos2unix "Python interpreter add-on.sh" && sh "Python interpreter add-on.sh"
+  - init: pip3 install -r ./requirements.txt && pip3 install --upgrade pip && wget -c https://github.com/watchdog1023/bash-scripts/raw/master/Python%20interpreter%20add-on.sh && dos2unix "Python interpreter add-on.sh" && sh "Python interpreter add-on.sh"
 image:
   file: .gitpod.Dockerfile
