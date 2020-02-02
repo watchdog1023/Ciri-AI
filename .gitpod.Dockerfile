@@ -2,7 +2,7 @@ FROM gitpod/workspace-full
 
 USER root
 RUN apt update
-RUN apt install splint shellcheck dos2unix -y
+RUN apt install splint shellcheck dos2unix python3 -y
 RUN pip3 install cpplint                    
 USER gitpod
 
