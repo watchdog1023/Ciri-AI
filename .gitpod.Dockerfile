@@ -3,7 +3,7 @@ FROM gitpod/workspace-full
 USER root
 RUN apt update
 RUN apt install splint shellcheck dos2unix python3 -y
-RUN pip3 install cpplint                    
+RUN pip3 install -U setuptools cpplint pylint
 USER gitpod
 
 # Install custom tools, runtime, etc. using apt-get
